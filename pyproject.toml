@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "greenbriar-scribe"
+version = "0.1.0"
+description = "PDF to cleaned text and structured JSONL for Greenbriar"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Greenbriar", email = "dev@greenbriar.local"}]
+keywords = ["pdf", "ocr", "pymupdf", "paddleocr", "text-extraction"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "pymupdf",
+  "regex",
+  "paddleocr",
+  "paddlepaddle",
+  "requests",
+]
+
+[project.scripts]
+greenbriar-scribe = "greenbriar_scribe.cli:main"
+
+[tool.setuptools]
+packages = ["greenbriar_scribe"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
